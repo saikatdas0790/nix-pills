@@ -4,8 +4,8 @@ in
 derivation {
   name = "hello";
   builder = "${pkgs.bash}/bin/bash";
-  args = [ ./hello_builder.sh ];
-  inherit (pkgs)
+  args = [ ./builder.sh ];
+  buildInputs = with pkgs; [
     gnutar
     gzip
     gnumake
@@ -14,8 +14,8 @@ derivation {
     gawk
     gnused
     gnugrep
-    ;
-  bintools = pkgs.binutils.bintools;
+    binutils.bintools
+  ];
   src = ./hello-2.12.1.tar.gz;
   system = builtins.currentSystem;
 }
