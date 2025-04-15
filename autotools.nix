@@ -13,6 +13,8 @@ let
       gnused
       gnugrep
       binutils.bintools
+      patchelf
+      findutils
     ];
     buildInputs = [ ];
     system = builtins.currentSystem;
